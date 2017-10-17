@@ -24,6 +24,8 @@ function getRoutesFromProps(props) {
   return props.routes || props.children;
 }
 
+const state = {};
+
 class ReduxRouter extends Component {
   static propTypes = {
     children: PropTypes.node
@@ -35,7 +37,7 @@ class ReduxRouter extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.router = createRouterObject(context.store.history, context.store.transitionManager, context.store);
+    this.router = createRouterObject(context.store.history, context.store.transitionManager, state);
   }
 
   componentWillMount() {
